@@ -1,0 +1,59 @@
+# SAC-specific configuration for continuous control RL training
+
+# Environment settings
+env_name: "Pendulum-v1"
+seed: 42
+
+# Algorithm settings
+algorithm: "sac"
+
+# Agent hyperparameters
+agent:
+  # Learning rate (same for all networks in SAC)
+  lr: 3e-4
+  
+  # Discount factor
+  gamma: 0.99
+  
+  # Soft update parameter
+  tau: 0.005
+  
+  # Entropy coefficient
+  alpha: 0.2
+  
+  # Automatic entropy tuning
+  auto_entropy: true
+  
+  # Batch size for training
+  batch_size: 256
+  
+  # Replay buffer size
+  buffer_size: 1000000
+  
+  # Network architecture
+  hidden_dims: [256, 256]
+
+# Training settings
+training:
+  # Number of training episodes
+  num_episodes: 1000
+  
+  # Evaluation frequency
+  eval_freq: 100
+  
+  # Model saving frequency
+  save_freq: 500
+  
+  # Number of evaluation episodes
+  eval_episodes: 10
+
+# Logging settings
+logging:
+  # Use Weights & Biases
+  use_wandb: false
+  
+  # Log level
+  level: "INFO"
+
+# Device settings
+device: "auto"

@@ -1,0 +1,58 @@
+# Default configuration for continuous control RL training
+
+# Environment settings
+env_name: "Pendulum-v1"
+seed: 42
+
+# Algorithm settings
+algorithm: "ddpg"  # Options: ddpg, sac
+
+# Agent hyperparameters
+agent:
+  # Learning rates
+  actor_lr: 1e-4
+  critic_lr: 1e-3
+  
+  # Discount factor
+  gamma: 0.99
+  
+  # Soft update parameter
+  tau: 0.005
+  
+  # Batch size for training
+  batch_size: 256
+  
+  # Replay buffer size
+  buffer_size: 1000000
+  
+  # Network architecture
+  hidden_dims: [256, 256]
+  
+  # SAC-specific parameters
+  alpha: 0.2  # Entropy coefficient
+  auto_entropy: true  # Automatic entropy tuning
+
+# Training settings
+training:
+  # Number of training episodes
+  num_episodes: 1000
+  
+  # Evaluation frequency
+  eval_freq: 100
+  
+  # Model saving frequency
+  save_freq: 500
+  
+  # Number of evaluation episodes
+  eval_episodes: 10
+
+# Logging settings
+logging:
+  # Use Weights & Biases
+  use_wandb: false
+  
+  # Log level
+  level: "INFO"
+
+# Device settings
+device: "auto"  # Options: auto, cuda, mps, cpu
